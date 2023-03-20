@@ -1,0 +1,25 @@
+{
+  "products": [
+    {"id": "1",
+      "model": "Tesla",
+      "price": "50.000",
+      "lastBid": "75.000",
+      "lastBidder": "tunahan123",
+      "image":"/images/tesla.webp"
+    },
+    {"id": "2",
+      "model": "BMW",
+      "price": "70.000",
+      "lastBid": "10000",
+      "lastBidder": "abfdf",
+      "image":"/images/bmw.jpeg"
+    },
+    {"id": "3",
+      "model": "Rolls Royce",
+      "price": "70.000",
+      "lastBid": "10000",
+      "lastBidder": "abfdf",
+      "image":"/images/rols-roys.jpeg"
+    }
+  ]
+}
