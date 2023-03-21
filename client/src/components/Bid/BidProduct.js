@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { authContext } from "../context/authContext/authContexProvider";
-import data from "../data/products.json";
+import { authContext } from "../../context/authContext/authContexProvider";
+import data from "../../data/products.json";
+import BidForm from "./BidForm";
+import BidProductInfo from "./BidProductInfo";
 
 const BidProduct = ({ socket }) => {
   const [amount, setAmount] = useState("");
@@ -12,11 +14,12 @@ const BidProduct = ({ socket }) => {
     lastBidder: "",
   });
   const [isDisabled, setIsDisabled] = useState(true);
-  const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useContext(authContext);
   // get product from static json file
   const product = data.products.filter((product) => product.id === id).pop();
+
+  // reversed array
 
   useEffect(() => {
     const getOneProduct = async (model) => {
@@ -86,50 +89,33 @@ const BidProduct = ({ socket }) => {
   }, [socket]);
 
   return (
-    <div>
-      <div className="bg-gray-500 w-[500px] p-4">
-        <h2>Place a Bid</h2>
-        <form className="" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-4">
-            <div>
-              <img src={product.image} alt="" />
-            </div>
-            <h3 className="">{product.model}</h3>
-            <div className="flex flex-col gap-4">
-              <label htmlFor="amount">Bidding Amount</label>
-              <div className="flex gap-6  ">
-                <div className="flex flex-col">
-                  <input
-                    type="number"
-                    name="amount"
-                    value={amount}
-                    onChange={handleChange}
-                    required
-                    className="rounded border-2 border-gray-300"
-                  />
-                  (Enter a number greater than {currentBid.currentBid})
-                </div>
+    <div className="flex flex-col sm:flex-row w-full justify-between gap-12 sm:gap-24 ">
+      <BidProductInfo product={product} />
 
-                <button
-                  className="bg-orange-400 disabled:bg-orange-200 py-1 px-2 rounded"
-                  disabled={isDisabled}
-                >
-                  {isDisabled ? " disabled" : "Place Bid"}
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+      <div className="sm:w-[500px] w-full">
+        <div></div>
+        <h1 className="text-3xl">
+          Curret Highest Bid: {currentBid.currentBid} ₺
+        </h1>
+
+        <BidForm
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          amount={amount}
+          isDisabled={isDisabled}
+          currentBid={currentBid}
+        />
         {dataRecived && (
           <div className="my-4">
-            <h2>Curret Highest Bid: {currentBid.currentBid}</h2>
-            <h2>Highest Bidder: {currentBid.lastBidder}</h2>
-            <div>
+            <h2 className="text-lg font-medium text-blue-600 ">
+              Highest Bidder: {currentBid.lastBidder}
+            </h2>
+            <div className="mt-4">
               <h2>LastBids:</h2>
-              <ul>
+              <ul className="flex flex-col-reverse list-disc list-inside p-2">
                 {currentBid.bids.map((bid) => (
                   <li key={bid.bidder + Math.random() * 20}>
-                    {bid.bidder} : Bidded {bid.bid}
+                    {bid.bidder} Bidded : {bid.bid} ₺
                   </li>
                 ))}
               </ul>

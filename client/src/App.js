@@ -7,7 +7,7 @@ import Login from "./components/Login/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register/Register";
 import { socket } from "./socket/socket";
-import BidProduct from "./components/BidProduct";
+import BidProduct from "./components/Bid/BidProduct";
 
 function App() {
   const { user, isAuthReady } = useContext(authContext);

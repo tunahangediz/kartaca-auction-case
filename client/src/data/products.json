@@ -5,21 +5,25 @@
       "price": "50.000",
       "lastBid": "75.000",
       "lastBidder": "tunahan123",
-      "image":"/images/tesla.webp"
+      "image":"/images/tesla.webp",
+      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
     },
     {"id": "2",
       "model": "BMW",
       "price": "70.000",
       "lastBid": "10000",
       "lastBidder": "abfdf",
-      "image":"/images/bmw.jpeg"
+      "image":"/images/bmw.jpeg",
+      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
+
     },
     {"id": "3",
       "model": "Rolls Royce",
       "price": "70.000",
       "lastBid": "10000",
       "lastBidder": "abfdf",
-      "image":"/images/rols-roys.jpeg"
+      "image":"/images/mustang.webp",
+      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
     }
   ]
 }

@@ -5,7 +5,7 @@ import { authContext } from "../context/authContext/authContexProvider";
 const Nav = () => {
   const { handleLogout, user } = useContext(authContext);
   return (
-    <div className="w-full bg-white shadow-md">
+    <div className="w-full bg-white shadow-md mb-12">
       <nav className="flex justify-between py-6 max-w-[1300px] m-auto px-4">
         <div className="header">
           <Link to="/">{user && <h1>{user?.username || user}</h1>}</Link>
