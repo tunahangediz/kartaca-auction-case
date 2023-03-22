@@ -8,16 +8,38 @@ const Nav = () => {
     <div className="w-full bg-white shadow-md mb-12">
       <nav className="flex justify-between py-6 max-w-[1300px] m-auto px-4">
         <div className="header">
-          <Link to="/">{user && <h1>{user?.username || user}</h1>}</Link>
+          <Link
+            className="text-lg font-medium hover:text-xl transition-all ease-in-out"
+            to="/"
+          >
+            {user && <h1>{user?.username || user}</h1>}
+          </Link>
         </div>
 
-        <div>
+        <div className="h-9">
           {!user ? (
             <>
-              <Link to="/login">Login</Link> <Link to="/register">Sign Up</Link>{" "}
+              <Link
+                className="text-lg font-medium hover:text-xl transition-all ease-in-out"
+                to="/login"
+              >
+                Login
+              </Link>{" "}
+              /{" "}
+              <Link
+                className="text-lg font-medium hover:text-xl transition-all ease-in-out"
+                to="/register"
+              >
+                Sign Up
+              </Link>{" "}
             </>
           ) : (
-            <button onClick={handleLogout}>Logout</button>
+            <button
+              className="text-lg font-medium hover:text-xl hover:text-red-600 transition-all ease-in-out"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           )}
         </div>
       </nav>

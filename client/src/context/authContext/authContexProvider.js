@@ -16,9 +16,11 @@ function AuthContextProvider({ children }) {
   useEffect(() => {
     const authReady = async () => {
       try {
+        // Make a GET request to the server to check if the user is authenticated
         const res = await axios.get("http://localhost:4000/users/login", {
           withCredentials: true,
         });
+        // If the request was successful, set the authentication state to reflect the authenticated user
         if (res.status === 200) {
           dispatch({
             type: "SET_AUTH_READY",
@@ -36,6 +38,7 @@ function AuthContextProvider({ children }) {
     authReady();
   }, []);
 
+  // logout function self explanatory
   const handleLogout = async () => {
     const response = await axios.delete("http://localhost:4000/users/logout", {
       withCredentials: true,

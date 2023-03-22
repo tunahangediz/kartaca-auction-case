@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   model: {
     type: String,
-    required: [true, "Please provide a name"],
+    required: [true, "Please provide a model"],
   },
   currentBid: {
     type: Number,

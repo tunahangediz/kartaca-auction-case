@@ -3,8 +3,8 @@ const bcrypt = require("bcryptjs");
 
 exports.signUp = async (req, res) => {
   const { username, password } = req.body;
-
   try {
+    //hashes the password and creates a new user
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = await User.create({
       username,
@@ -55,8 +55,7 @@ exports.login = async (req, res) => {
       message: err,
     });
   }
-};
-
+}; // check if user is logged in
 exports.isLoggedIn = (req, res) => {
   if (req.session.user) {
     res.status(200).json({

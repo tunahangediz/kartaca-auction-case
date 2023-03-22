@@ -2,28 +2,22 @@
   "products": [
     {"id": "1",
       "model": "Tesla",
-      "price": "50.000",
-      "lastBid": "75.000",
       "lastBidder": "tunahan123",
       "image":"/images/tesla.webp",
-      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
+      "description":"Introducing the Tesla Roadster, the world's fastest car. It goes from 0 to 60 mph in 1.9 seconds, reaches a top speed of over 250 mph, and can travel up to 620 miles on a single charge. It's a four-seater convertible with a lightweight, removable glass roof that stores in the trunk for an open-air driving experience. Bid now to own this piece of automotive history and experience the ultimate electric supercar."
     },
     {"id": "2",
       "model": "BMW",
-      "price": "70.000",
-      "lastBid": "10000",
       "lastBidder": "abfdf",
       "image":"/images/bmw.jpeg",
-      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
+      "description":"The BMW M8 Competition is a sports car built for high-performance driving. Equipped with a 4.4-liter V8 engine that generates 617 horsepower, this car can accelerate from 0 to 60 mph in just 3 seconds. Additionally, its suspension and aerodynamics have been designed to provide improved handling and stability. Prepare yourself to experience the full power of this remarkable vehicle and enjoy the excitement of driving the BMW M8 Competition."
 
     },
     {"id": "3",
-      "model": "Rolls Royce",
-      "price": "70.000",
-      "lastBid": "10000",
+      "model": "Mustang",
       "lastBidder": "abfdf",
       "image":"/images/mustang.webp",
-      "description":"Are you looking for an electric supercar that can outperform any other vehicle on the road? Then you might be interested in this Tesla Roadster, the fastest car in the world according to Tesla. This stunning four-seater convertible can accelerate from 0 to 60 mph in 1.9 seconds, reach a top speed of over 250 mph, and travel up to 620 miles on a single charge1. It also features a lightweight, removable glass roof that stores in the trunk for an open-air driving experience1. This is your chance to own a piece of automotive history.Don’t miss this opportunity to bid on this amazing Tesla Roadster and enjoy the thrill of driving the ultimate electric supercar."
+      "description":"A legendary sports car that has been thrilling drivers for decades. With its powerful engines and iconic design, the Mustang is a true American classic. The latest model is no exception, boasting a 5.0-liter V8 engine that produces up to 480 horsepower and can reach a top speed of 155 mph. The Mustang also features advanced handling and suspension systems that provide a smooth and agile ride. Get ready to experience the raw power and adrenaline rush of driving the Mustang, a true symbol of American muscle."
     }
   ]
 }

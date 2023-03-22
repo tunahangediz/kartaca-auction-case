@@ -6,8 +6,11 @@ function BidProductInfo({ product }) {
       <div>
         <img src={product.image} alt={product.model} className="sm:h-[450px]" />
       </div>
-      <h3 className="">{product.model}</h3>
-      <p>{product.description} </p>
+
+      <div className="mt-2">
+        <h3 className="text-xl font-medium">{product.model}</h3>
+        <p className="mt-2">{product.description} </p>
+      </div>
     </div>
   );
 }

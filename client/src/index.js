@@ -5,16 +5,20 @@ import App from "./App";
 import AuthContextProvider from "./context/authContext/authContexProvider";
 import { BrowserRouter, Router } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import AuctionContextProvider from "./context/auctionContext/auctionContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <BrowserRouter>
-        <Layout>
-          <App />
-        </Layout>
-      </BrowserRouter>
+      <AuctionContextProvider>
+        <BrowserRouter>
+          <Layout>
+            <App />
+          </Layout>
+        </BrowserRouter>
+      </AuctionContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

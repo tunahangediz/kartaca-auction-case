@@ -1,8 +1,9 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { auctionContext } from "../../context/auctionContext/auctionContextProvider";
 import { authContext } from "../../context/authContext/authContexProvider";
 import data from "../../data/products.json";
+import BiddersList from "./BiddersList";
 import BidForm from "./BidForm";
 import BidProductInfo from "./BidProductInfo";
 
@@ -12,6 +13,7 @@ const BidProduct = ({ socket }) => {
   const [currentBid, setCurrentBid] = useState({
     currentBid: 0,
     lastBidder: "",
+    bids: [],
   });
   const [isDisabled, setIsDisabled] = useState(true);
   const { id } = useParams();
@@ -19,36 +21,14 @@ const BidProduct = ({ socket }) => {
   // get product from static json file
   const product = data.products.filter((product) => product.id === id).pop();
 
-  // reversed array
+  const { getOneProduct, updateProduct } = useContext(auctionContext);
 
+  //getting initial data from db
   useEffect(() => {
-    const getOneProduct = async (model) => {
-      const url = `http://localhost:4000/products/${model}`;
-      try {
-        const response = await axios.get(url, {
-          withCredentials: true,
-        });
-        console.log(response.data.data.product);
-        socket.emit("bid", response.data.data.product);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getOneProduct(product.model);
+    getOneProduct(product.model, socket);
   }, []);
 
-  const updateProduct = async (product) => {
-    const url = "http://localhost:4000/products";
-
-    try {
-      const response = await axios.put(url, product, { withCredentials: true });
-      //   console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // socket üzerinde teklifi iletiyoruz
+  // sending data to socket and update product in db
   const handleSubmit = (e) => {
     e.preventDefault();
     const newBid = {
@@ -70,7 +50,7 @@ const BidProduct = ({ socket }) => {
       socket.emit("bid", currentBid);
     }
   };
-
+  // teklif miktarını alıyoruz
   const handleChange = (e) => {
     const inputValue = e.target.value;
     setAmount(inputValue);
@@ -93,7 +73,6 @@ const BidProduct = ({ socket }) => {
       <BidProductInfo product={product} />
 
       <div className="sm:w-[500px] w-full">
-        <div></div>
         <h1 className="text-3xl">
           Curret Highest Bid: {currentBid.currentBid} ₺
         </h1>
@@ -105,23 +84,7 @@ const BidProduct = ({ socket }) => {
           isDisabled={isDisabled}
           currentBid={currentBid}
         />
-        {dataRecived && (
-          <div className="my-4">
-            <h2 className="text-lg font-medium text-blue-600 ">
-              Highest Bidder: {currentBid.lastBidder}
-            </h2>
-            <div className="mt-4">
-              <h2>LastBids:</h2>
-              <ul className="flex flex-col-reverse list-disc list-inside p-2">
-                {currentBid.bids.map((bid) => (
-                  <li key={bid.bidder + Math.random() * 20}>
-                    {bid.bidder} Bidded : {bid.bid} ₺
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+        {dataRecived && <BiddersList currentBid={currentBid} />}
       </div>
     </div>
   );
