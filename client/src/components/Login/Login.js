@@ -28,6 +28,14 @@ function Login() {
         className="max-w-lg p-12 m-auto rounded-xl bg-white"
         onSubmit={handleSubmit}
       >
+        {error && (
+          <div className="text-center mb-2">
+            {" "}
+            <h1 className="text-red-600 text-2xl">
+              Wrong Login information
+            </h1>{" "}
+          </div>
+        )}
         <div className="text-center mb-14">
           <h1 className="text-gray-900 text-4xl">Sign in</h1>
         </div>
