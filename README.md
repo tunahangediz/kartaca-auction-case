@@ -1,14 +1,12 @@
 Bu proje, kullanıcıların açık artırma yapabildiği bir web uygulamasıdır. Kullanıcılar üyelik oluşturarak giriş yapabilir ve belirlenen ürünlere canlı olarak teklif verebilir. Projede arka uç için NodeJs , ön yüzde ise React kullanılmıştır. Oturum bilgileri Rediste, kullanıcı bilgileri Mongodb de bulunmaktadır.
 
-## Ekran Görüntüleri
-
 ![Uygulama Ekran Görüntüsü](inside-app-images/bid-screen.png)
 
 ## Kullanılan Teknolojiler
 
 **İstemci:** React, TailwindCSS, socket.io
 
-**Sunucu:** Node, Express, socket.io
+**Sunucu:** Node, Express, socket.io, mongoDB, Redis
 
 ## Kullanım
 
@@ -18,7 +16,7 @@ Bu proje, kullanıcıların açık artırma yapabildiği bir web uygulamasıdır
     git clone https://github.com/tunahangediz/kartaca-auction-case.git
 ```
 
-#### projeyi docker ile ayağa kaldırmak için proje dosyasının içinde komutu çalıştıralım
+#### projeyi docker ile ayağa kaldırmak için
 
 ```bash
     docker-compose up -d --build
