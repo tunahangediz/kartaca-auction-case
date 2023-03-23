@@ -50,7 +50,7 @@ const socketIO = require("socket.io")(http, {
     origin: "http://localhost:3000",
   },
 });
-// Pass to socket to handler to handle socket events
+// Pass to socket to handler to handle socket events from sockets/index.js
 socketHandler(socketIO);
 
 // Connect to Redis server

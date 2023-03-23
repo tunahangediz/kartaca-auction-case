@@ -12,7 +12,7 @@ function AuctionContextProvider({ children }) {
       const response = await axios.get(url, {
         withCredentials: true,
       });
-      socket.emit("bid", response.data.data.product);
+      socket.emit("bid", response.data.data.product, model);
     } catch (error) {
       console.error(error);
     }

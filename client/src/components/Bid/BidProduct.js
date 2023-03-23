@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { auctionContext } from "../../context/auctionContext/auctionContextProvider";
 import { authContext } from "../../context/authContext/authContexProvider";
 import data from "../../data/products.json";
+import { changeProduct, createBid } from "../../lib/product";
 import BiddersList from "./BiddersList";
 import BidForm from "./BidForm";
 import BidProductInfo from "./BidProductInfo";
@@ -22,32 +23,32 @@ const BidProduct = ({ socket }) => {
   const product = data.products.filter((product) => product.id === id).pop();
 
   const { getOneProduct, updateProduct } = useContext(auctionContext);
-
+  // socket room
+  const room = product.model;
   //getting initial data from db
   useEffect(() => {
     getOneProduct(product.model, socket);
   }, []);
 
+  // join room
+  useEffect(() => {
+    socket.emit("join", product.model, (msg) => console.log(msg));
+
+    return () => {
+      socket.emit("leave", product.model, (msg) => console.log(msg));
+    };
+  }, [room]);
+
   // sending data to socket and update product in db
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBid = {
-      model: product.model,
-      lastBidder: user?.username || user,
-      currentBid: Number(amount),
-      bids: Array.isArray(currentBid.bids)
-        ? [
-            ...currentBid.bids,
-            { bidder: user?.username || user, bid: Number(amount) },
-          ]
-        : [{ bidder: user?.username || user, bid: Number(amount) }],
-    };
+    const newBid = createBid(product, currentBid, user, amount);
     if (newBid.currentBid > currentBid.currentBid) {
-      socket.emit("bid", newBid);
+      socket.emit("bid", newBid, room);
       setCurrentBid(newBid);
       updateProduct(newBid);
     } else {
-      socket.emit("bid", currentBid);
+      socket.emit("bid", currentBid, room);
     }
   };
   // teklif miktarını alıyoruz

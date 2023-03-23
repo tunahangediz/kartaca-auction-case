@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { auctionContext } from "../../context/auctionContext/auctionContextProvider";
+import { socket } from "../../socket/socket";
 
 function ProductCard({ product }) {
-  //get current bid from context
-
   // a funciton if text length longer than 100 characters cut it and add ...
   const textEllipsis = (text) => {
     if (text.length > 100) {
