@@ -1,35 +1,29 @@
-Bu proje, kullanıcıların açık artırma yapabildiği bir web uygulamasıdır. Kullanıcılar üyelik oluşturarak giriş yapabilir ve belirlenen ürünlere canlı olarak teklif verebilir. Projede arka uç için NodeJs , ön yüzde ise React kullanılmıştır. Oturum bilgileri Rediste, kullanıcı bilgileri Mongodb de bulunmaktadır.
+This is a web application that allows users to participate in live auctions. Users can create an account and login to the application in order to bid on the specified products. Node.js is used for the backend and React is used for the frontend. User session information is stored in Redis, while user information is stored in MongoDB. Socket.io is used for real-time communication between the server and clients.
 
-![Uygulama Ekran Görüntüsü](inside-app-images/bid-screen.png)
+![Application Screenshot](inside-app-images/bid-screen.png)
 
-## Kullanılan Teknolojiler
+## Technologies Used
 
-**İstemci:** React, TailwindCSS, socket.io
+**Client:** React, TailwindCSS, socket.io
 
-**Sunucu:** Node, Express, socket.io, mongoDB, Redis
+**Server:** Node, Express, socket.io, mongoDB, Redis
 
-## Kullanım
+## Usage
 
-#### projeyi kendi bilgisayarımıza klonlayalım
+#### Clone the project to your local machine
 
 ```bash
     git clone https://github.com/tunahangediz/kartaca-auction-case.git
 ```
 
-#### projeyi docker ile ayağa kaldırmak için
+#### To run the project with Docker:
 
 ```bash
     docker-compose up -d --build
 ```
 
-#### Proje localhost çalışma portları:
+#### Localhost ports for the project:
 
-**İstemci:** http://localhost:3000/
+**Client:** http://localhost:3000/
 
-**Sunucu:** http://localhost:4000/
-
-## Registration Key
-
-```json
-    "registrationKey": "6599da9a351fbc51f2be77dc065d3c8374d3bcb22b5970d30bde1c83d665fb42"
-```
+**Server:** http://localhost:4000/
